@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2020-01-16 21:26:09.547
+-- Last modification date: 2020-01-16 21:45:34.964
 
 -- tables
 -- Table: ACH_ADDITIVE
@@ -18,8 +18,8 @@ CREATE TABLE ACH_CUSTOMER (
     TELEPHONE int  NOT NULL,
     STREET varchar(255)  NOT NULL,
     HOME_NUMBER varchar(255)  NOT NULL,
-    CITY int  NOT NULL,
-    POSTAL_CODE int  NOT NULL,
+    CITY varchar(255)  NOT NULL,
+    POSTAL_CODE varchar(255)  NOT NULL,
     USER_LOGIN varchar(30)  NOT NULL,
     USER_PASS varchar(255)  NOT NULL,
     CONSTRAINT ACH_CUSTOMER_pk PRIMARY KEY  (ID_CUSTOMER)
