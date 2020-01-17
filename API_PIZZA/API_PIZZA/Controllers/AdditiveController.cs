@@ -59,8 +59,6 @@ namespace API_PIZZA.Controllers
         public IActionResult Update(int item_id, AchAdditive updated_item)
         {
 
-
-
             var item = _context.AchAdditive.Count(e => e.IdAdditive == item_id);
 
             if (item == 0)

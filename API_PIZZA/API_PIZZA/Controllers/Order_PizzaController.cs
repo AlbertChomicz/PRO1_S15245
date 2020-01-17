@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API_PIZZA.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_PIZZA.Controllers
 {
@@ -52,19 +53,38 @@ namespace API_PIZZA.Controllers
             return StatusCode(201, newItem);
         }
 
+        [HttpPut("{item_id:int}")]
+        public IActionResult Update(int item_id, AchOrderPizza updated_item)
+        {
+
+            var item = _context.AchOrderPizza.Count(e => e.IdOrderPizza == item_id);
+            updated_item.IdOrderPizza = item_id;
+
+            if (item == 0)
+            {
+                return NotFound();
+            }
+
+            _context.AchOrderPizza.Attach(updated_item);
+            _context.Entry(updated_item).State = EntityState.Modified;
+            _context.SaveChanges();
+            return Ok(updated_item);
+        }
+
+
 
         [HttpDelete("{item_id:int}")]
         public IActionResult Delete(int item_id)
         {
 
-            var temp_item = _context.AchPizzaComposition.FirstOrDefault(e => e.PizzaCompositionId == item_id);
+            var temp_item = _context.AchOrderPizza.FirstOrDefault(e => e.IdOrderPizza == item_id);
 
             if (temp_item == null)
             {
                 return NotFound();
             }
 
-            _context.AchPizzaComposition.Remove(temp_item);
+            _context.AchOrderPizza.Remove(temp_item);
             _context.SaveChanges();
             return Ok(temp_item);
         }
@@ -72,10 +92,10 @@ namespace API_PIZZA.Controllers
 
 
 
-        [HttpDelete("all/{pizza_id:int}")]
-        public IActionResult DeleteAll(int pizza_id)
+        [HttpDelete("all/{order_id:int}")]
+        public IActionResult DeleteAllbyorderID (int order_id)
         {
-            var list = _context.AchPizzaComposition.Where(e => e.AchPizzaIdPizza == pizza_id).ToList();
+            var list = _context.AchOrderPizza.Where(e => e.AchOrderIdOrder == order_id).ToList();
 
 
             if (list.Count() == 0)
@@ -83,7 +103,7 @@ namespace API_PIZZA.Controllers
                 return NotFound();
             }
 
-            list.ForEach(e => _context.AchPizzaComposition.Remove(e));
+            list.ForEach(e => _context.AchOrderPizza.Remove(e));
             _context.SaveChanges();
             return Ok(list);
 

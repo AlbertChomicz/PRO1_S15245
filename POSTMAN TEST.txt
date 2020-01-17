@@ -1,0 +1,16 @@
+Additive
+
+http://localhost:64302/api/Additive
+GET, PUT, POST, DELETE dziala
+http://localhost:64302/api/Additive/101 
+
+
+Customer_Alergen - dziala
+
+Customers - dziala
+Ingredients - dziala
+Order_Additives - dziala
+Order_Pizza - dziala
+Orders
+Pizza_composition- dziala
+Pizzas
