@@ -27,13 +27,13 @@ insert into s15245.ach_ingredient values
 
 --PIZZE
 insert into s15245.ach_pizza values
-(1, 'margheritta', 20);
+(1, 'margheritta', 20,1);
 insert into s15245.ach_pizza values
-(2, 'vesuvio', 25);
+(2, 'vesuvio', 25, 1);
 insert into s15245.ach_pizza values
-(3, 'hawajska', 28);
+(3, 'hawajska', 28, 1);
 insert into s15245.ach_pizza values
-(4, 'pepperoni', 28);
+(4, 'pepperoni', 28, 1);
 
 
 --DODATKI
@@ -88,13 +88,13 @@ insert into s15245.ACH_CUSTOMER_ALERGEN values
 
 --ZAMOWIENIA
 INSERT INTO s15245.ach_order values 
-(1, 1, '2006-12-30 00:38:54.840', 1)
+(1, 1, '2006-12-30 00:38:54.840', 1, 1)
 
 INSERT INTO s15245.ach_order values 
-(2, 2, '2020-01-16 23:40:11.840', 3)
+(2, 2, '2020-01-16 23:40:11.840', 3, 1)
 
 INSERT INTO s15245.ach_order values 
-(3, 3, '2020-01-16 23:40:11.840', 2)
+(3, 3, '2020-01-16 23:40:11.840', 2, 2)
 
 --KOMPOZYCJA ZAMOWIEN - PIZZA
 
